@@ -1,3 +1,17 @@
+export interface HeroArchitectureMode {
+  id: 'gutenberg' | 'woocommerce' | 'headless';
+  label: string;
+  tagline: string;
+  lighthouseScore: string;
+  ttfb: string;
+  lcp: string;
+  payloadSize: string;
+  stackSummary: string;
+  highlights: string[];
+  imageUrl: string;
+  imageCaption: string;
+}
+
 export interface CapabilityItem {
   index: string;
   title: string;
@@ -59,87 +73,141 @@ export interface CaseStudy {
 
 export const HERO_IMAGE_PATH = '/src/assets/images/hero_wp_architect_workspace_1793111807933.jpg';
 
+export const HERO_ARCHITECTURAL_MODES: HeroArchitectureMode[] = [
+  {
+    id: 'gutenberg',
+    label: 'Custom Gutenberg & FSE',
+    tagline: 'Zero-bloat native Block API v3 themes with strict theme.json design tokens.',
+    lighthouseScore: '100 / 100',
+    ttfb: '118 ms',
+    lcp: '0.7 s',
+    payloadSize: '14.2 KB CSS/JS',
+    stackSummary: 'WordPress 6.7+ · React Block API v3 · theme.json v3 · Interactivity API',
+    highlights: [
+      'Replaces heavy Elementor/Divi DOM wrappers with clean semantic HTML5',
+      'Role-locked block patterns so editors publish pages in minutes without breaking layouts',
+      'Sub-second mobile Largest Contentful Paint across global CDN edge nodes',
+    ],
+    imageUrl: '/src/assets/images/case_study_editorial_publishing_1793111809675.jpg',
+    imageCaption: 'Bespoke Gutenberg Block System · Swiss-Grid Publishing Architecture',
+  },
+  {
+    id: 'woocommerce',
+    label: 'High-Velocity WooCommerce',
+    tagline: 'Custom Store API checkouts and HPOS database engineering built for flash drops.',
+    lighthouseScore: '99 / 100',
+    ttfb: '145 ms',
+    lcp: '0.9 s',
+    payloadSize: '22.8 KB CSS/JS',
+    stackSummary: 'WooCommerce HPOS · Store API · Redis Atomic Stock Locks · Stripe / ERP Sync',
+    highlights: [
+      'Custom High-Performance Order Storage (HPOS) eliminating wp_postmeta bottlenecks',
+      'Instant side-drawer cart and single-screen checkout with zero jQuery dependencies',
+      'Asynchronous Action Scheduler workers for ERP, inventory, and CRM webhooks',
+    ],
+    imageUrl: '/src/assets/images/case_study_woocommerce_flagship_1793111811364.jpg',
+    imageCaption: 'High-Concurrency WooCommerce Flagship · Sub-Second Checkout Flow',
+  },
+  {
+    id: 'headless',
+    label: 'Enterprise Multisite & Headless',
+    tagline: 'Governed multi-brand design systems, custom plugins, and WPGraphQL APIs.',
+    lighthouseScore: '100 / 100',
+    ttfb: '92 ms',
+    lcp: '0.6 s',
+    payloadSize: '16.0 KB CSS/JS',
+    stackSummary: 'WordPress Multisite · Bedrock / Composer · WPGraphQL · Redis Object Cache',
+    highlights: [
+      'Unified multi-region WordPress networks managed with Composer and GitHub Actions CI/CD',
+      'Custom PHP 8.3 plugins engineered to strict WordPress VIP security standards',
+      'Granular Surrogate-Key edge cache invalidation with 98.8% global hit ratio',
+    ],
+    imageUrl: '/src/assets/images/case_study_headless_enterprise_1793111811441.jpg',
+    imageCaption: 'Multi-Brand Block Library & Headless WPGraphQL Architecture',
+  },
+];
+
 export const HERO_METRICS = [
   {
     value: '99.4 / 100',
-    label: 'Median Core Web Vitals Score',
-    context: 'Measured across 28 enterprise WordPress & WooCommerce production deployments (2023–2026)',
+    label: 'Median Core Web Vitals',
+    context: 'Verified across 35+ custom WordPress & WooCommerce production launches',
   },
   {
-    value: '142 ms',
+    value: '130 ms',
     label: 'Median Global TTFB',
-    context: 'Via persistent Redis object caching, Cloudflare Enterprise edge rules, and zero-query templates',
+    context: 'Engineered with persistent Redis object caching & Cloudflare edge rules',
   },
   {
-    value: '$48.6M',
-    label: 'Annual WooCommerce GMV',
-    context: 'Processed through custom High-Performance Order Storage (HPOS) & sub-second checkout flows',
+    value: '$48M+',
+    label: 'Client WooCommerce GMV',
+    context: 'Processed through custom HPOS tables and sub-second Store API checkouts',
   },
   {
     value: '0 KB',
-    label: 'Page-Builder Runtime Bloat',
-    context: '100% native Gutenberg Block API v3, strict theme.json tokens, and tree-shaken ES modules',
+    label: 'Page-Builder Bloat',
+    context: '100% hand-crafted Gutenberg blocks, strict PHP 8.3, and clean semantic markup',
   },
 ];
 
 export const CAPABILITIES: CapabilityItem[] = [
   {
-    index: '01. Custom Gutenberg & Full-Site Editing Systems',
-    title: 'Bespoke Block Libraries & Design Token Governance',
-    category: 'Editorial & Design Systems',
+    index: '01. Bespoke Gutenberg Themes & Full-Site Editing',
+    title: 'Custom Block Libraries That Replace Fragile Page Builders',
+    category: 'Theme & Design System Engineering',
     summary:
-      'Replace fragile third-party page builders with tailored React-powered Gutenberg blocks, strict theme.json design token enforcement, and locked editorial patterns that prevent layout drift.',
-    outcomeMetric: '3.4× faster editorial publishing velocity with zero layout regressions',
+      'I build custom WordPress themes from the ground up using Block API v3 and strict theme.json design tokens. Your marketing team gets an intuitive, drag-and-drop visual editing experience in wp-admin while visitors get lightning-fast, semantic HTML.',
+    outcomeMetric: '3.6× faster page publishing with 99+ Google PageSpeed scores',
     deliverables: [
-      'Block API v3 custom React blocks',
-      'Locked pattern libraries & role permissions',
-      'Strict theme.json fluid typography & spacing scales',
-      'Automated visual regression testing in CI/CD',
+      'Custom React & PHP Gutenberg blocks',
+      'Locked brand pattern libraries & editorial guardrails',
+      'Fluid typography & spacing tokens in theme.json v3',
+      'Zero jQuery or third-party builder overhead',
     ],
     inspectorTabId: 'block-api',
   },
   {
-    index: '02. High-Concurrency WooCommerce Engineering',
-    title: 'Sub-Second Storefronts & Custom HPOS Checkout Flows',
-    category: 'Commerce Architecture',
+    index: '02. High-Conversion WooCommerce Development',
+    title: 'Sub-Second Storefronts, Custom Checkouts & HPOS Scaling',
+    category: 'E-Commerce Architecture',
     summary:
-      'Architect WooCommerce stores engineered for high-traffic product drops and complex B2B catalogs. Eliminate wp_postmeta bottlenecks via High-Performance Order Storage (HPOS) and custom database indices.',
-    outcomeMetric: '+38% checkout completion rate under 4,500 concurrent active sessions',
+      'Standard WooCommerce stores slow down as catalog size and traffic grow. I re-engineer WooCommerce using High-Performance Order Storage (HPOS), custom React Store API carts, and background ERP/payment queues that never lock your database.',
+    outcomeMetric: '+41% checkout completion rate during high-traffic product drops',
     deliverables: [
-      'WooCommerce HPOS custom table migrations',
-      'Bespoke React Store API cart & checkout',
-      'ERP, NetSuite & Stripe webhook queue workers',
-      'Fragment-cached dynamic pricing & inventory',
+      'WooCommerce HPOS custom database migration',
+      'Bespoke multi-step or one-click checkout flows',
+      'Custom product configurators & dynamic bundle pricing',
+      'Stripe, NetSuite, HubSpot & custom API integrations',
     ],
     inspectorTabId: 'woocommerce-hpos',
   },
   {
-    index: '03. Enterprise Architecture & Edge Caching',
-    title: 'WordPress VIP Standards, Redis Object Caching & Security',
-    category: 'Infrastructure & Performance',
+    index: '03. Custom Plugin Engineering & REST / GraphQL APIs',
+    title: 'Clean, Auditable PHP 8.3 Plugins & External System Sync',
+    category: 'Backend & API Architecture',
     summary:
-      'Eliminate slow MySQL queries, transient race conditions, and plugin vulnerabilities. Implement persistent Redis object cache groups, strict CSP headers, and immutable Composer deployments.',
-    outcomeMetric: '82% reduction in origin database CPU utilization during traffic spikes',
+      'When off-the-shelf plugins conflict or fall short, I write lean, object-oriented WordPress plugins tailored to your exact business logic—complete with custom database tables, WP-CLI commands, and secure REST or WPGraphQL endpoints.',
+    outcomeMetric: '85% reduction in plugin footprint and recurring license costs',
     deliverables: [
-      'Persistent Redis cache group invalidation',
-      'Bedrock / Composer immutable dependency management',
-      'Custom REST API & WPGraphQL schema caching',
-      'Automated PHPCS WordPress VIP Coding Standards',
+      'Strict-typed PHP 8.3 custom plugins & webhooks',
+      'Custom database schemas outside wp_postmeta',
+      'Authenticated REST API & WPGraphQL endpoints',
+      'Automated PHPCS security & VIP standards auditing',
     ],
     inspectorTabId: 'edge-cache',
   },
   {
-    index: '04. Legacy Migration & Core Web Vitals Remediation',
-    title: 'Surgical Refactoring from Elementor, Divi & Legacy Multisites',
-    category: 'Migration & Remediation',
+    index: '04. Page-Builder Migration & Speed Remediation',
+    title: 'Surgical Migration from Elementor, Divi & Legacy Stacks',
+    category: 'Performance & SEO Preservation',
     summary:
-      'Migrate mission-critical publications and B2B platforms off bloated legacy themes and complex shortcodes into clean semantic Gutenberg markup while preserving 100% of SEO equity and URL structures.',
-    outcomeMetric: 'Average LCP reduced from 4.8s to 0.9s within 6 weeks of cutover',
+      'Stuck with a sluggish Elementor or Divi site failing Core Web Vitals? I migrate existing content, custom post types, and SEO metadata into a modern native Gutenberg architecture with zero downtime and zero lost search rankings.',
+    outcomeMetric: 'Average mobile LCP reduced from 4.8s to 0.8s within 4 weeks',
     deliverables: [
-      'Automated WP-CLI AST shortcode-to-block parser',
-      'Zero-downtime staging & delta content sync',
-      'Schema.org JSON-LD & canonical URL preservation',
-      'INP & main-thread JavaScript detoxification',
+      'Automated WP-CLI shortcode-to-Gutenberg migration',
+      '100% URL structure, canonical & JSON-LD preservation',
+      'Main-thread JavaScript & INP latency elimination',
+      'Zero-downtime staging cutover & delta content sync',
     ],
     inspectorTabId: 'theme-json',
   },
@@ -148,63 +216,61 @@ export const CAPABILITIES: CapabilityItem[] = [
 export const CODE_ARTIFACTS: CodeArtifact[] = [
   {
     id: 'block-api',
-    tabLabel: 'Block API v3 (React + PHP)',
-    fileName: 'blocks/case-metric-grid/index.tsx',
-    language: 'TypeScript / JSX',
-    architectureLayer: 'Gutenberg Native Block System · Zero Frontend Runtime Overhead',
+    tabLabel: 'Gutenberg Block (React + PHP)',
+    fileName: 'blocks/haris-bento-showcase/index.tsx',
+    language: 'TypeScript / Block API v3',
+    architectureLayer: 'Native Gutenberg Block · Zero Client-Side React Bundle',
     description:
-      'Custom blocks compile to clean, semantic HTML in the database or use lightweight server-side rendering with Interactivity API directives—delivering full React authoring ergonomics in wp-admin with zero React bundle shipped to anonymous visitors.',
+      'Haris Azeem’s custom blocks give editors full visual control inside wp-admin while compiling down to pure semantic HTML and lightweight Interactivity API directives on the frontend.',
     metrics: [
-      { label: 'Frontend JS Shipped', value: '1.8 KB (Interactivity API)', comparison: 'vs. 184 KB Elementor runtime' },
-      { label: 'DOM Depth', value: '3 semantic nodes', comparison: 'vs. 19 nested wrapper divs' },
-      { label: 'Authoring Guardrails', value: 'Strict attribute schema', comparison: 'Prevents off-brand font/color overrides' },
+      { label: 'Frontend JS Shipped', value: '1.6 KB', comparison: 'vs. 195 KB Elementor runtime' },
+      { label: 'HTML DOM Depth', value: '3 semantic nodes', comparison: 'vs. 22 nested builder divs' },
+      { label: 'Design Governance', value: 'Strict schema', comparison: 'Prevents broken mobile padding' },
     ],
     code: `import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, ToggleControl } from '@wordpress/components';
 import metadata from './block.json';
 
-interface MetricGridAttributes {
-  columns: '2' | '3' | '4';
-  surfaceTone: 'paper' | 'slate';
-  enforceTabularNums: boolean;
+interface BentoAttributes {
+  gridLayout: 'asymmetric-7-5' | 'split-6-6' | 'triad-4-4-4';
+  surfaceTheme: 'obsidian' | 'charcoal';
+  tabularMetrics: boolean;
 }
 
-registerBlockType<MetricGridAttributes>(metadata.name, {
+registerBlockType<BentoAttributes>(metadata.name, {
   edit: ({ attributes, setAttributes }) => {
-    const { columns, surfaceTone, enforceTabularNums } = attributes;
+    const { gridLayout, surfaceTheme, tabularMetrics } = attributes;
     const blockProps = useBlockProps({
-      className: \`wp-block-klara-metric-grid grid-cols-\${columns} tone-\${surfaceTone}\`,
+      className: \`wp-block-haris-bento layout-\${gridLayout} surface-\${surfaceTheme}\`,
     });
 
     return (
       <>
         <InspectorControls>
-          <PanelBody title="Architectural Grid Rules">
+          <PanelBody title="Haris Azeem Grid Architecture">
             <SelectControl
-              label="Desktop Column Count"
-              value={columns}
+              label="Desktop Column Ratio"
+              value={gridLayout}
               options={[
-                { label: '2 Columns (Split Narrative)', value: '2' },
-                { label: '3 Columns (Triad Proof)', value: '3' },
-                { label: '4 Columns (Telemetry Strip)', value: '4' },
+                { label: 'Asymmetric Bento (7 : 5)', value: 'asymmetric-7-5' },
+                { label: 'Balanced Split (6 : 6)', value: 'split-6-6' },
+                { label: 'Editorial Triad (4 : 4 : 4)', value: 'triad-4-4-4' },
               ]}
-              onChange={(val) => setAttributes({ columns: val as MetricGridAttributes['columns'] })}
+              onChange={(val) =>
+                setAttributes({ gridLayout: val as BentoAttributes['gridLayout'] })
+              }
             />
             <ToggleControl
               label="Enforce Tabular Numerals"
-              checked={enforceTabularNums}
-              onChange={(val) => setAttributes({ enforceTabularNums: val })}
+              checked={tabularMetrics}
+              onChange={(val) => setAttributes({ tabularMetrics: val })}
             />
           </PanelBody>
         </InspectorControls>
         <section {...blockProps}>
           <InnerBlocks
-            allowedBlocks={['klara/metric-cell']}
-            template={[
-              ['klara/metric-cell', { metricValue: '99.4%', metricLabel: 'Uptime SLA' }],
-              ['klara/metric-cell', { metricValue: '140ms', metricLabel: 'Median TTFB' }],
-            ]}
+            allowedBlocks={['haris/case-card', 'haris/metric-tile']}
           />
         </section>
       </>
@@ -215,16 +281,16 @@ registerBlockType<MetricGridAttributes>(metadata.name, {
   },
   {
     id: 'theme-json',
-    tabLabel: 'theme.json Design Tokens',
+    tabLabel: 'theme.json Token System',
     fileName: 'theme.json',
     language: 'JSON Schema v3',
-    architectureLayer: 'Global Styles & Fluid Typography Governance',
+    architectureLayer: 'Global Design Tokens & Fluid Clamp() Typography',
     description:
-      'A locked theme.json configuration disables arbitrary color pickers, custom font sizes, and inline pixel padding—binding the entire WordPress editor directly to your brand design tokens and fluid CSS clamp() scales.',
+      'Locks the WordPress Site Editor to your exact brand color palette and fluid typographic scale—eliminating rogue inline styles and bloated CSS frameworks.',
     metrics: [
-      { label: 'Generated CSS Payload', value: '6.4 KB gzipped', comparison: 'Replaces 320 KB legacy stylesheet' },
-      { label: 'Style Drift Incidents', value: '0 per quarter', comparison: 'Custom hex & arbitrary sizes disabled' },
-      { label: 'Fluid Breakpoints', value: 'Zero media queries', comparison: 'Native clamp() viewport scaling' },
+      { label: 'Compiled Stylesheet', value: '5.8 KB gzipped', comparison: 'Replaces 340 KB theme CSS' },
+      { label: 'Responsive Scaling', value: 'Native CSS clamp()', comparison: 'Zero breakpoint jumps' },
+      { label: 'Editor Guardrails', value: '100% Tokenized', comparison: 'Arbitrary hex picker disabled' },
     ],
     code: `{
   "$schema": "https://schemas.wp.org/trunk/theme.json",
@@ -233,32 +299,28 @@ registerBlockType<MetricGridAttributes>(metadata.name, {
     "appearanceTools": false,
     "color": {
       "custom": false,
-      "customDuotone": false,
-      "customGradient": false,
       "defaultPalette": false,
       "palette": [
-        { "slug": "canvas", "color": "#FAFAFA", "name": "Neutral Canvas" },
-        { "slug": "surface", "color": "#FFFFFF", "name": "Structural Surface" },
-        { "slug": "ink", "color": "#18181B", "name": "Primary Ink" },
-        { "slug": "muted", "color": "#52525B", "name": "Muted Copy" },
-        { "slug": "cobalt", "color": "#1D4ED8", "name": "Focal Cobalt Accent" }
+        { "slug": "obsidian", "color": "#09090B", "name": "Obsidian Canvas" },
+        { "slug": "charcoal", "color": "#121216", "name": "Structural Surface" },
+        { "slug": "alabaster", "color": "#FAFAFA", "name": "Primary Alabaster" },
+        { "slug": "zinc-muted", "color": "#A1A1AA", "name": "Muted Copy" },
+        { "slug": "amber-gold", "color": "#F59E0B", "name": "Focal Amber Accent" }
       ]
     },
     "typography": {
       "customFontSize": false,
       "fluid": true,
-      "fontSizes": [
+      "fontFamilies": [
         {
-          "slug": "body",
-          "size": "1rem",
-          "fluid": { "min": "0.9375rem", "max": "1rem" },
-          "name": "Body Prose (15–16px)"
+          "fontFamily": "Outfit, sans-serif",
+          "slug": "display",
+          "name": "Outfit Display"
         },
         {
-          "slug": "display-xl",
-          "size": "3.5rem",
-          "fluid": { "min": "2.25rem", "max": "3.75rem" },
-          "name": "Hero Display"
+          "fontFamily": "Plus Jakarta Sans, sans-serif",
+          "slug": "sans",
+          "name": "Plus Jakarta Sans Body"
         }
       ]
     }
@@ -267,55 +329,51 @@ registerBlockType<MetricGridAttributes>(metadata.name, {
   },
   {
     id: 'woocommerce-hpos',
-    tabLabel: 'WooCommerce HPOS & Store API',
-    fileName: 'src/Commerce/HighConcurrencyInventory.php',
+    tabLabel: 'WooCommerce HPOS Engine',
+    fileName: 'src/Commerce/AtomicStockReservation.php',
     language: 'PHP 8.3 (Strict Types)',
-    architectureLayer: 'High-Performance Order Storage · Atomic Stock Reservation',
+    architectureLayer: 'High-Performance Order Storage · Redis Stock Locks',
     description:
-      'Bypasses legacy wp_postmeta table locks during high-velocity product drops. Uses WooCommerce HPOS custom tables paired with atomic Redis stock reservation and asynchronous Action Scheduler webhooks.',
+      'Engineered for high-volume WooCommerce stores. Uses HPOS custom tables and atomic Redis memory locks to handle thousands of simultaneous checkouts without database deadlocks.',
     metrics: [
-      { label: 'Checkout Query Time', value: '4.2 ms', comparison: 'Down from 640 ms on wp_postmeta' },
-      { label: 'Concurrent Carts', value: '5,000+ active', comparison: 'Zero MySQL deadlock errors' },
-      { label: 'Order Sync Latency', value: 'Async Queue', comparison: 'Decoupled ERP webhook dispatch' },
+      { label: 'Order Lookup Query', value: '3.8 ms', comparison: 'vs. 680 ms on legacy wp_postmeta' },
+      { label: 'Concurrent Checkouts', value: '6,000+ active', comparison: 'Zero MySQL lock wait timeouts' },
+      { label: 'ERP Sync Architecture', value: 'Async Workers', comparison: 'Non-blocking checkout response' },
     ],
     code: `<?php
 declare(strict_types=1);
 
-namespace Klara\\EnterpriseCommerce;
+namespace HarisAzeem\\WooArchitecture;
 
 use Automattic\\WooCommerce\\Utilities\\OrderUtil;
-use WC_Order;
 
-final class HighConcurrencyInventory {
-    public function register_hooks(): void {
-        add_action('woocommerce_before_checkout_process', [$this, 'assert_hpos_active'], 5);
-        add_filter('woocommerce_order_data_store_cpt_get_orders_query', [$this, 'optimize_lookup'], 10, 2);
-    }
-
-    public function assert_hpos_active(): void {
-        if (!OrderUtil::custom_orders_table_usage_is_enabled()) {
-            do_action('qm/warning', 'HPOS custom tables must remain enabled in production.');
-        }
+final class AtomicStockReservation {
+    public function boot(): void {
+        add_action('woocommerce_store_api_checkout_order_processed', [$this, 'dispatch_async_erp_sync'], 10, 1);
     }
 
     /**
-     * Reserve SKU allocation in Redis before Stripe PaymentIntent confirmation
-     * to prevent overselling during high-velocity flash drops.
+     * Reserve SKU allocation in Redis prior to payment capture
+     * to prevent overselling during high-concurrency product drops.
      */
-    public function reserve_atomic_inventory(int $product_id, int $qty, string $session_hash): bool {
-        $cache_key = sprintf('wc_stock_lock:%d', $product_id);
-        $current_reserved = (int) wp_cache_get($cache_key, 'klara_commerce_locks');
+    public function reserve_sku(int $product_id, int $quantity, string $cart_token): bool {
+        if (!OrderUtil::custom_orders_table_usage_is_enabled()) {
+            throw new \\RuntimeException('WooCommerce HPOS must be active.');
+        }
 
-        $available = (int) get_post_meta($product_id, '_stock', true);
-        if (($available - $current_reserved) < $qty) {
+        $lock_key = sprintf('haris_wc_lock:%d', $product_id);
+        $reserved = (int) wp_cache_get($lock_key, 'haris_inventory');
+        $physical_stock = (int) get_post_meta($product_id, '_stock', true);
+
+        if (($physical_stock - $reserved) < $quantity) {
             return false;
         }
 
-        wp_cache_incr($cache_key, $qty, 'klara_commerce_locks');
-        as_schedule_single_action(time() + 600, 'klara_release_expired_stock_lock', [
-            'product_id'   => $product_id,
-            'qty'          => $qty,
-            'session_hash' => $session_hash,
+        wp_cache_incr($lock_key, $quantity, 'haris_inventory');
+        as_schedule_single_action(time() + 480, 'haris_release_expired_cart_lock', [
+            'product_id' => $product_id,
+            'quantity'   => $quantity,
+            'cart_token' => $cart_token,
         ]);
 
         return true;
@@ -324,55 +382,48 @@ final class HighConcurrencyInventory {
   },
   {
     id: 'edge-cache',
-    tabLabel: 'Edge Cache & REST Endpoint',
-    fileName: 'src/Performance/EdgeCacheOrchestrator.php',
+    tabLabel: 'Edge Cache & Surrogate Keys',
+    fileName: 'src/Performance/EdgeSurrogatePurge.php',
     language: 'PHP 8.3 (WordPress VIP)',
-    architectureLayer: 'Persistent Object Cache & Surrogate-Key Edge Invalidation',
+    architectureLayer: 'Granular CDN Cache Invalidation · 98.8% Hit Ratio',
     description:
-      'Tags rendered templates and custom REST API responses with granular Surrogate-Key headers. When an editor updates a single post, only the affected URLs purge at the CDN edge—keeping global cache hit ratios above 98.5%.',
+      'Tags every WordPress response with granular Surrogate-Key headers. Updating an article or product purges only affected routes at the edge in under 150ms instead of flushing the entire site cache.',
     metrics: [
-      { label: 'Edge Cache Hit Ratio', value: '98.7%', comparison: 'Granular Surrogate-Key purge' },
-      { label: 'Origin DB Queries', value: '0 on cache hit', comparison: 'Served directly from edge PoP' },
-      { label: 'Purge Propagation', value: '< 150 ms global', comparison: 'Zero full-site cache stampedes' },
+      { label: 'Global Edge Hit Ratio', value: '98.8%', comparison: 'Instant worldwide delivery' },
+      { label: 'Origin DB Load', value: '-84% CPU', comparison: 'Zero PHP execution on cache hit' },
+      { label: 'Invalidation Latency', value: '120 ms', comparison: 'Targeted single-post purge' },
     ],
     code: `<?php
 declare(strict_types=1);
 
-namespace Klara\\Performance;
+namespace HarisAzeem\\Performance;
 
 use WP_Post;
 
-final class EdgeCacheOrchestrator {
-    private const CACHE_GROUP = 'klara_rendered_fragments';
-
-    public function send_surrogate_headers(): void {
+final class EdgeSurrogatePurge {
+    public function attach_headers(): void {
         if (is_admin() || is_user_logged_in()) {
             header('Cache-Control: private, no-store');
             return;
         }
 
-        $keys = ['site-global'];
+        $keys = ['haris-global'];
         if (is_singular()) {
-            $keys[] = 'post-' . get_queried_object_id();
+            $keys[] = 'entity-' . get_queried_object_id();
         }
         if (is_front_page()) {
-            $keys[] = 'front-page';
+            $keys[] = 'route-home';
         }
 
         header('Surrogate-Key: ' . implode(' ', $keys));
-        header('Cache-Control: public, max-age=300, stale-while-revalidate=86400');
+        header('Cache-Control: public, s-maxage=3600, stale-while-revalidate=86400');
     }
 
-    public function purge_post_surrogate_key(int $post_id, WP_Post $post): void {
+    public function on_post_updated(int $post_id, WP_Post $post): void {
         if (wp_is_post_revision($post_id) || $post->post_status !== 'publish') {
             return;
         }
-
-        wp_cache_delete('fragment_' . $post_id, self::CACHE_GROUP);
-        do_action('klara_edge_purge_surrogate_keys', [
-            'post-' . $post_id,
-            'front-page',
-        ]);
+        do_action('haris_purge_edge_keys', ['entity-' . $post_id, 'route-home']);
     }
 }`,
   },
@@ -380,92 +431,84 @@ final class EdgeCacheOrchestrator {
 
 export const STACK_COMPARISON = {
   legacy: {
-    name: 'Typical Page-Builder & Multi-Purpose Theme Stack',
-    subtitle: 'Elementor / Divi + 45 off-the-shelf plugins + shared unindexed wp_postmeta',
+    name: 'Typical Page-Builder Stack (Elementor / Divi)',
     domNodes: '2,840 nodes',
-    cssPayload: '412 KB',
-    jsPayload: '680 KB',
+    payload: '1,092 KB CSS/JS',
     ttfb: '1,180 ms',
     lcp: '4.6 s (Poor)',
-    inp: '340 ms (Needs Work)',
-    dbQueriesPerPage: '148 queries',
-    securitySurface: 'High (32 third-party plugin vendors with automatic unvetted updates)',
+    dbQueries: '148 queries / request',
   },
   bespoke: {
-    name: 'Klara Lindqvist Native Block & Edge Architecture',
-    subtitle: 'Gutenberg Block API v3 + theme.json v3 + Redis Object Cache + HPOS',
-    domNodes: '380 nodes',
-    cssPayload: '14 KB',
-    jsPayload: '18 KB',
-    ttfb: '135 ms',
-    lcp: '0.8 s (Good)',
-    inp: '38 ms (Good)',
-    dbQueriesPerPage: '12 cached queries',
-    securitySurface: 'Minimal (Composer-locked dependencies, zero frontend form/builder bloat)',
+    name: 'Haris Azeem Native Block & HPOS Architecture',
+    domNodes: '360 nodes',
+    payload: '31 KB CSS/JS',
+    ttfb: '125 ms',
+    lcp: '0.8 s (99/100)',
+    dbQueries: '9 cached queries',
   },
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'arkhitect-editorial',
-    title: 'Arkhitect Media — Global Design Monograph & Subscription Platform',
+    title: 'Arkhitect Media — Custom Gutenberg Publishing Platform & Paywall',
     client: 'Arkhitect Publishing Group (Zurich & London)',
     sector: 'editorial',
-    sectorLabel: 'Editorial & Publishing',
+    sectorLabel: 'Custom Gutenberg & Publishing',
     year: '2026',
-    timeline: '8 Weeks',
-    stackSummary: 'WordPress VIP · Custom Gutenberg Block Library · Stripe Subscriptions · Cloudflare Enterprise',
+    timeline: '7 Weeks',
+    stackSummary: 'Custom Block Theme · Block API v3 · Stripe Metered Paywall · Redis Edge Cache',
     headlineMetric: '+164% Paid Digital Subscriptions in 6 Months',
-    headlineContext: 'LCP reduced from 4.9s to 0.8s across 42,000 archival architectural articles',
+    headlineContext: 'Mobile LCP cut from 4.9s to 0.8s across 42,000 archival articles',
     summary:
-      'Migrated a 14-year-old multisite publication off a brittle legacy shortcode theme into a Swiss-grid Full-Site Editing (FSE) architecture with custom interactive footnote, blueprint zoom, and metered paywall blocks.',
+      'Replaced a brittle 14-year-old shortcode and page-builder setup with a bespoke Swiss-grid Full-Site Editing (FSE) theme, 18 custom React Gutenberg blocks, and edge-authenticated Stripe subscription gating.',
     challenge:
-      'Arkhitect Publishing had accumulated 42,000 long-form articles built with nested legacy shortcodes and 38 conflicting plugins. Editorial layout assembly took 3.5 hours per issue, and mobile Core Web Vitals failures caused a 34% drop in organic search visibility.',
+      'Arkhitect’s editorial team spent over three hours formatting each issue due to deeply nested shortcodes and 38 conflicting plugins. Slow mobile page loads were hurting organic search reach and subscriber conversion.',
     architectureSolution: [
-      'Engineered a custom WP-CLI AST parser that migrated all 42,000 legacy shortcode articles into clean native Gutenberg blocks with zero broken layouts or lost canonical URLs.',
-      'Built 18 bespoke Gutenberg blocks (Swiss Asymmetric Issue Grid, Archival Blueprint Lightbox, Audio Essay Player, and Metered Paywall Gate) governed by a strict theme.json v3 token specification.',
-      'Implemented edge-side paywall entitlement verification via Cloudflare Workers and persistent Redis object caching, keeping global TTFB under 140ms.',
+      'Engineered an automated WP-CLI AST migration script that converted 42,000 legacy articles into clean native Gutenberg blocks with zero broken URLs.',
+      'Built 18 custom Gutenberg blocks (Issue Grid, Blueprint Zoom Lightbox, Audio Essay Player, and Metered Paywall Gate) governed by theme.json v3.',
+      'Configured Cloudflare edge caching with Surrogate-Key invalidation and persistent Redis object caching for sub-130ms global TTFB.',
     ],
     imageUrl: '/src/assets/images/case_study_editorial_publishing_1793111809675.jpg',
-    imageAlt: 'Laptop resting on a travertine stone plinth displaying the Arkhitect Swiss-grid digital magazine layout',
+    imageAlt: 'Laptop on travertine plinth showing the Arkhitect custom Gutenberg digital magazine layout engineered by Haris Azeem',
     featuredSpan: true,
     vitalsComparison: [
       { metric: 'Largest Contentful Paint (LCP)', before: '4.9 s', after: '0.8 s', delta: '-83%' },
       { metric: 'Interaction to Next Paint (INP)', before: '310 ms', after: '32 ms', delta: '-90%' },
       { metric: 'Time to First Byte (TTFB)', before: '1,240 ms', after: '128 ms', delta: '-90%' },
-      { metric: 'Issue Production Time', before: '210 mins', after: '45 mins', delta: '4.6× Faster' },
+      { metric: 'Editorial Issue Assembly Time', before: '210 mins', after: '40 mins', delta: '5.2× Faster' },
     ],
     testimonial: {
       quote:
-        'Before working with Klara, our editorial team spent half their week fighting broken shortcodes and slow wp-admin saves. She migrated 14 years of archival journalism into a custom Gutenberg design system without losing a single search ranking—and our paid subscriber conversion rate more than doubled within two quarters.',
+        'Haris Azeem completely transformed our publishing workflow. He migrated 14 years of archival journalism off a slow shortcode theme into a custom Gutenberg block system without losing a single search ranking—and our paid subscriber conversion rate more than doubled.',
       author: 'Lukas Meyerhofer',
       role: 'Chief Digital Officer',
       organization: 'Arkhitect Publishing Group',
-      outcomeHighlight: '+164% Paid Subscriber Conversion · 0.8s Mobile LCP',
+      outcomeHighlight: '+164% Subscriber Conversion · 0.8s Mobile LCP',
     },
   },
   {
     id: 'aeterna-horology',
-    title: 'Aeterna Genève — High-Concurrency Horology Flagship & Bespoke Configurator',
+    title: 'Aeterna Genève — High-Concurrency WooCommerce Flagship & Configurator',
     client: 'Aeterna Manufacture Horlogère (Geneva)',
     sector: 'woocommerce',
-    sectorLabel: 'Luxury WooCommerce',
+    sectorLabel: 'High-Velocity WooCommerce',
     year: '2025',
-    timeline: '10 Weeks',
-    stackSummary: 'WooCommerce HPOS · WooCommerce Store API · Custom React Configurator · ERP Sync',
+    timeline: '9 Weeks',
+    stackSummary: 'WooCommerce HPOS · Custom Store API Checkout · Redis Stock Locks · SAP ERP Sync',
     headlineMetric: '+41% High-Ticket Checkout Conversion Rate',
-    headlineContext: 'Zero downtime during 6,200-concurrent-user limited edition caliber drops',
+    headlineContext: '100% uptime during 6,200-concurrent-user limited-edition watch drops',
     summary:
-      'Re-architected a luxury Swiss watchmaker’s WooCommerce flagship with High-Performance Order Storage (HPOS), atomic Redis stock reservation, and an instant 60fps movement & strap configurator.',
+      'Re-architected a luxury watchmaker’s WooCommerce store onto High-Performance Order Storage (HPOS) with atomic Redis inventory reservation and a sub-second custom Store API checkout.',
     challenge:
-      'During limited-edition timepiece releases, Aeterna’s legacy WooCommerce database locked up due to unindexed wp_postmeta queries and synchronous SAP ERP inventory checks during checkout, resulting in abandoned carts and database deadlocks.',
+      'During limited-edition timepiece drops, Aeterna’s legacy WooCommerce database locked up due to unindexed wp_postmeta queries and synchronous ERP inventory checks during checkout.',
     architectureSolution: [
-      'Migrated 180,000 historical orders and client service records to WooCommerce High-Performance Order Storage (HPOS) with custom composite indices.',
-      'Built an atomic Redis stock reservation layer and decoupled SAP ERP synchronization into background Action Scheduler workers.',
-      'Replaced the legacy jQuery cart with a sub-second WooCommerce Store API checkout supporting multi-currency Swiss Franc (CHF), EUR, and USD wire & escrow authorizations.',
+      'Migrated 180,000+ historical orders to WooCommerce High-Performance Order Storage (HPOS) with custom composite MySQL indices.',
+      'Built an atomic Redis stock reservation layer and moved SAP ERP synchronization into asynchronous Action Scheduler background queues.',
+      'Replaced the slow legacy checkout with a custom React WooCommerce Store API flow supporting multi-currency CHF, EUR, and USD transactions.',
     ],
     imageUrl: '/src/assets/images/case_study_woocommerce_flagship_1793111811364.jpg',
-    imageAlt: 'Studio monitor on limestone surface displaying the Aeterna Watches luxury WooCommerce storefront',
+    imageAlt: 'Studio monitor displaying the Aeterna Watches luxury WooCommerce storefront architected by Haris Azeem',
     featuredSpan: false,
     vitalsComparison: [
       { metric: 'Checkout API Response Time', before: '2,850 ms', after: '165 ms', delta: '-94%' },
@@ -475,35 +518,35 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        'Our limited-edition Ref. 1953 release previously brought our server down within three minutes. Klara re-engineered our WooCommerce database onto HPOS with atomic stock locks and a custom Store API checkout. We sold out our entire allocation in four minutes with sub-second page loads globally.',
+        'Our limited-edition releases used to crash our server within minutes. Haris re-engineered our WooCommerce backend onto HPOS with atomic Redis stock locks and a custom Store API checkout. We processed $6.8M in four minutes with sub-second load times.',
       author: 'Céline Delacroix',
       role: 'VP of Direct-to-Consumer Digital',
       organization: 'Aeterna Manufacture Horlogère',
-      outcomeHighlight: '$6.8M Drop Processed in 4 Minutes · Zero Database Locks',
+      outcomeHighlight: '$6.8M Flash Drop in 4 Mins · Zero Database Locks',
     },
   },
   {
     id: 'global-axis-design-system',
-    title: 'Global Axis — Multi-Brand Enterprise Block Library & Governance',
-    client: 'Global Axis Industrial Technologies (Munich & Stockholm)',
+    title: 'Global Axis — Multi-Region Enterprise Block Library & Multisite Network',
+    client: 'Global Axis Industrial Technologies (Munich)',
     sector: 'enterprise',
-    sectorLabel: 'Enterprise Design Systems',
+    sectorLabel: 'Enterprise Multisite & Plugins',
     year: '2025',
-    timeline: '12 Weeks',
+    timeline: '10 Weeks',
     stackSummary: 'WordPress Multisite · Composer / Bedrock · 34 Custom Blocks · WPGraphQL',
     headlineMetric: '78% Reduction in Regional Microsite Launch Cost',
-    headlineContext: 'Unified 19 regional B2B websites onto a single governed multisite codebase',
+    headlineContext: 'Unified 19 regional B2B sites onto a single governed WordPress Multisite codebase',
     summary:
-      'Consolidated 19 fragmented regional marketing sites onto a Composer-managed WordPress Multisite network powered by the Global Axis v2.1 Block Library and automated multilingual synchronization.',
+      'Consolidated 19 fragmented regional websites onto a Composer-managed WordPress Multisite network powered by 34 custom Gutenberg blocks and automated multilingual workflows.',
     challenge:
-      'Each regional marketing division operated its own WordPress installation with incompatible page builders, causing severe brand inconsistency, recurring security patching overhead, and 12-week delays to launch new product lines across Europe.',
+      'Each regional division ran a separate WordPress install with incompatible page builders, causing brand inconsistency, security patching overhead, and 6-week delays to launch new product campaigns.',
     architectureSolution: [
-      'Architected a unified WordPress Multisite network managed via Bedrock, Composer, and GitHub Actions with automated PHPCS WordPress VIP validation.',
-      'Delivered the Global Axis v2.1 Design System—34 accessible, WCAG AA compliant Gutenberg blocks with strict role-based locking so regional teams can localize copy without breaking layout geometry.',
-      'Integrated automated DeepL + human review translation workflows and headless WPGraphQL feeds for the companion technical documentation portal.',
+      'Architected a unified WordPress Multisite network managed with Bedrock, Composer, and automated GitHub Actions CI/CD pipelines.',
+      'Developed 34 WCAG AA compliant Gutenberg blocks with role-based locking so regional teams can localize copy without breaking layout geometry.',
+      'Built custom WPGraphQL endpoints feeding real-time product specs to the companion technical documentation portal.',
     ],
     imageUrl: '/src/assets/images/case_study_headless_enterprise_1793111811441.jpg',
-    imageAlt: 'Design studio desk with monitor and tablet displaying the Global Axis v2.1 Block Library and design system',
+    imageAlt: 'Studio desk showing the Global Axis v2.1 Block Library and multisite system engineered by Haris Azeem',
     featuredSpan: false,
     vitalsComparison: [
       { metric: 'Regional Campaign Launch Time', before: '6 Weeks', after: '4 Days', delta: '-89%' },
@@ -513,11 +556,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     testimonial: {
       quote:
-        'Consolidating 19 regional websites onto Klara’s custom Gutenberg multisite architecture transformed our marketing operations. Regional managers now launch localized product pages in days instead of months, and our engineering team no longer wastes sprints firefighting plugin conflicts.',
+        'Consolidating 19 regional websites onto Haris Azeem’s custom Gutenberg multisite architecture saved us over $55,000 a year in plugin overhead alone. Our regional teams now launch localized campaigns in days instead of weeks.',
       author: 'Henrik Lindström',
       role: 'Director of Web Platform Engineering',
       organization: 'Global Axis Industrial Technologies',
-      outcomeHighlight: '19 Regional Sites Unified · 100/100 WCAG AA Compliance',
+      outcomeHighlight: '19 Regional Sites Unified · 100/100 WCAG AA Score',
     },
   },
 ];
